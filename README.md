@@ -10,10 +10,13 @@ The experiment was carried out using Ubuntu with a single partition as the base 
 
 1. **Install Btrfs**:  
    To install Btrfs, use the command:
+
    ```bash
    sudo apt install btrfs-progs
    ```
+
    You can verify the installation by checking the version:
+
    ```bash
    btrfs --version
    ```
@@ -32,7 +35,7 @@ sudo mount /dev/loop27 /mnt/btrfs_compressed
 sudo btrfs property set /mnt/btrfs_compressed compression zlib
 ```
 
-*(To find the loop number, execute `losetup -a` to check the associated virtual disk name.)*
+_(To find the loop number, execute `losetup -a` to check the associated virtual disk name.)_
 
 ### Compression Disabled
 
@@ -72,9 +75,21 @@ sudo ./vdbench -f vdbench_uncompressed.txt -o output_uncompressed
 
 ## Results
 
-After running the tests, we evaluated space usage, performance, and CPU usage. The following results were observed:  
-*(Insert your results and any figures here)*
+After running the tests, we evaluated space usage, performance, and CPU usage. The following results were observed:
 
-## Conclusion
+- **Figure 1**: Space Usage for the disk with compression enabled.
+  ![Space For Enabled](SS/space_compressed.png)
+- **Figure 2**: Space Usage for the disk with compression disabled.
+  ![Space For Disabled](SS/space_uncompressed.png)
+- **Figure 3**: Performance for the disk with compression enabled.
+  ![Performance For Enabled](SS/performance_compressed.png)
+- **Figure 4**: Performance for the disk with compression disabled.
+  ![Performance For Disabled](SS/performance_uncompressed.png)
+- **Figure 5**: CPU usage for the disk with compression enabled.
+  ![Performance For Enabled](SS/cpu_compressed.png)
+- **Figure 6**: CPU usage for the disk with compression disabled.
+  ![Performance For Disabled](SS/cpu_uncompressed.png)
 
-This analysis provides insights into the benefits and drawbacks of enabling compression in the Btrfs file system, demonstrating significant space savings with associated trade-offs in CPU usage and write speed.
+## Conclusions
+
+Btrfs compression optimizes space and boosts I/O performance at the cost of higher CPU usage, with potential impacts on write speed in CPU-limited environments.
