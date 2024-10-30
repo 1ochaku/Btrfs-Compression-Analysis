@@ -1,0 +1,12 @@
+<title>Vdbench output_compressed/parmfile.html</title><pre>
+
+* Contents of parameter file: /home/nakamura/Desktop/vdbench/vdbench_compressed.txt
+
+* Define the storage device with compression enabled
+sd=sd1,lun=/dev/loop27,openflags=o_direct
+
+* Define the workload for writing a large file
+wd=wd1,sd=sd1,xfersize=64k,rdpct=0
+
+* Define the run parameters directly
+rd=rd1,wd=wd1,iorate=60000,elapsed=60,threads=1
